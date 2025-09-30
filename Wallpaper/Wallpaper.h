@@ -12,5 +12,8 @@ public:
 	char* GetName();
 	int GetRollsize();
 	int GetPrice();
+	void SetName(const char* n);
+	void SetRollsize(int s);
+	void SetPrice(int p);
 };
 
