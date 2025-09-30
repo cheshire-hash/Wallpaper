@@ -22,7 +22,7 @@ public:
 	static int GetCount();
 	static int GetCountWithCeeling();
 	int NeededWallpaperForRoom(); 
-	int CostWalls();
+	int CostWallsForRoom();
 
 };
 

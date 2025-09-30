@@ -2,6 +2,9 @@
 #include "Wallpaper.h"
 #include <iostream>
 
+int Room::count = 0;
+int Room::countWithCeeling = 0;
+
 Room::Room() : name(nullptr), roomsize(0), ceeling(false) { count++; }
 
 Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
@@ -89,7 +92,7 @@ int Room::NeededWallpaperForRoom()
 	else return roomsize / wallpaper->GetRollsize();
 }
 
-int Room::CostWalls()
+int Room::CostWallsForRoom()
 {
 	return NeededWallpaperForRoom() * wallpaper->GetPrice();
 }
