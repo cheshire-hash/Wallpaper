@@ -1,6 +1,7 @@
 #pragma once
 class Room
 {
+	static int count;
 	char* name;
 	int roomsize;
 	bool ceeling;
@@ -15,5 +16,7 @@ public:
 	void SetName(const char* n);
 	void SetRoomsize(int s);
 	void SetCeeling(bool c);
+	static int GetCount() { return count; }
+
 };
 

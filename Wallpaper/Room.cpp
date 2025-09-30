@@ -1,7 +1,7 @@
 #include "Room.h"
 #include <iostream>
 
-Room::Room() : name(nullptr), roomsize(0), ceeling(false) {}
+Room::Room() : name(nullptr), roomsize(0), ceeling(false) { count++; }
 
 Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
 {
@@ -9,6 +9,7 @@ Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
 	strcpy_s(name, strlen(n) + 1, n);
 	roomsize = s;
 	ceeling = c;
+	count++;
 }
 
 Room::Room(const Room& obj)
@@ -21,11 +22,13 @@ Room::Room(const Room& obj)
 	strcpy_s(name, strlen(obj.name) + 1, obj.name);
 	roomsize = obj.roomsize;
 	ceeling = obj.ceeling;
+	count++;
 }
 
 Room::~Room()
 {
 	delete[] name;
+	count--;
 }
 
 char* Room::GetName()
