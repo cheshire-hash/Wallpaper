@@ -1,2 +1,64 @@
 #include "Room.h"
+#include <iostream>
 
+Room::Room() : name(nullptr), roomsize(0), ceeling(false) {}
+
+Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
+{
+	name = new char[strlen(n) + 1];
+	strcpy_s(name, strlen(n) + 1, n);
+	roomsize = s;
+	ceeling = c;
+}
+
+Room::Room(const Room& obj)
+{
+	if (name != nullptr)
+	{
+		delete[] name;
+	}
+	name = new char[strlen(obj.name) + 1];
+	strcpy_s(name, strlen(obj.name) + 1, obj.name);
+	roomsize = obj.roomsize;
+	ceeling = obj.ceeling;
+}
+
+Room::~Room()
+{
+	delete[] name;
+}
+
+char* Room::GetName()
+{
+	return name;
+}
+
+int Room::GetRoomsize()
+{
+	return roomsize;
+}
+
+bool Room::GetCeeling()
+{
+	return false;
+}
+
+void Room::SetName(const char* n)
+{
+	if (name != nullptr)
+	{
+		delete[] name;
+	}
+	name = new char[strlen(n) + 1];
+	strcpy_s(name, strlen(n) + 1, n);
+}
+
+void Room::SetRoomsize(int s)
+{
+	roomsize = s;
+}
+
+void Room::SetCeeling(bool c)
+{
+	ceeling = c;
+}

@@ -60,3 +60,5 @@ void Wallpaper::SetPrice(int p)
 {
 	price = p;
 }
+
+
