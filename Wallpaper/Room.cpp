@@ -10,6 +10,7 @@ Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
 	roomsize = s;
 	ceeling = c;
 	count++;
+	countWithCeeling += c ? 1 : 0;
 }
 
 Room::Room(const Room& obj)
@@ -23,12 +24,14 @@ Room::Room(const Room& obj)
 	roomsize = obj.roomsize;
 	ceeling = obj.ceeling;
 	count++;
+	countWithCeeling += ceeling ? 1 : 0;
 }
 
 Room::~Room()
 {
 	delete[] name;
 	count--;
+	countWithCeeling -= ceeling ? 1 : 0;
 }
 
 char* Room::GetName()
@@ -64,4 +67,14 @@ void Room::SetRoomsize(int s)
 void Room::SetCeeling(bool c)
 {
 	ceeling = c;
+}
+
+int Room::GetCount()
+{
+	return count;
+}
+
+int Room::GetCountWithCeeling()
+{
+	return countWithCeeling;
 }
