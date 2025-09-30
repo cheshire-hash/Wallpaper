@@ -5,5 +5,12 @@ class Wallpaper
 	int rollsize;
 	int price;
 public:
+	Wallpaper();
+	Wallpaper(const char* n, int s, int p);
+	Wallpaper(const Wallpaper& other);
+	~Wallpaper();
+	char* GetName();
+	int GetRollsize();
+	int GetPrice();
 };
 
