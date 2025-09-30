@@ -1,6 +1,8 @@
 #pragma once
+#include "Wallpaper.h"
 class Room
 {
+	Wallpaper* wallpaper;
 	static int count;
 	static int countWithCeeling;
 	char* name;
@@ -19,6 +21,8 @@ public:
 	void SetCeeling(bool c);
 	static int GetCount();
 	static int GetCountWithCeeling();
+	int CalculateNeededWallpaper(); 
+	int CostWalls();
 
 };
 

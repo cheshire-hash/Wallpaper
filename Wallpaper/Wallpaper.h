@@ -7,7 +7,7 @@ class Wallpaper
 public:
 	Wallpaper();
 	Wallpaper(const char* n, int s, int p);
-	Wallpaper(const Wallpaper& other);
+	Wallpaper(const Wallpaper& obj);
 	~Wallpaper();
 	char* GetName();
 	int GetRollsize();
