@@ -9,5 +9,7 @@ public:
 	Flat(int n);
 	Flat(const Flat& obj);
 	~Flat();
+	int CountTotalRooms();
+	int TotalCost();
 };
 

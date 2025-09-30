@@ -21,7 +21,7 @@ public:
 	void SetCeeling(bool c);
 	static int GetCount();
 	static int GetCountWithCeeling();
-	int CalculateNeededWallpaper(); 
+	int NeededWallpaperForRoom(); 
 	int CostWalls();
 
 };

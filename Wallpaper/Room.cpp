@@ -80,7 +80,7 @@ int Room::GetCountWithCeeling()
 	return countWithCeeling;
 }
 
-int Room::CalculateNeededWallpaper()
+int Room::NeededWallpaperForRoom()
 {
 	if (roomsize % wallpaper->GetRollsize() == 0)
 	{
@@ -91,6 +91,6 @@ int Room::CalculateNeededWallpaper()
 
 int Room::CostWalls()
 {
-	return CalculateNeededWallpaper() * wallpaper->GetPrice();
+	return NeededWallpaperForRoom() * wallpaper->GetPrice();
 }
 
