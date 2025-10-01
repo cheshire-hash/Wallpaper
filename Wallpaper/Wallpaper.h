@@ -15,5 +15,6 @@ public:
 	void SetName(const char* n);
 	void SetRollsize(int s);
 	void SetPrice(int p);
+	void Print();
 };
 

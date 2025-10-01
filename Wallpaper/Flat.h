@@ -6,10 +6,12 @@ class Flat
 	static int countroom;
 public:
 	Flat();
-	Flat(int n);
+	Flat(Room& list);
 	Flat(const Flat& obj);
+
 	~Flat();
 	int CountTotalRooms();
 	int TotalCost();
+	void Print();
 };
 

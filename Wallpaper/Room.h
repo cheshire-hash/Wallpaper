@@ -21,8 +21,10 @@ public:
 	void SetCeeling(bool c);
 	static int GetCount();
 	static int GetCountWithCeeling();
+	 void SetWallpaper(Wallpaper* wp);
+    Wallpaper* GetWallpaper();
 	int NeededWallpaperForRoom(); 
 	int CostWallsForRoom();
-
+	void Print();
 };
 

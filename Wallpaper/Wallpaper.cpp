@@ -61,4 +61,11 @@ void Wallpaper::SetPrice(int p)
 	price = p;
 }
 
+void Wallpaper::Print()
+{
+	cout << "Name: " << name << "\n";
+	cout << "Roll size: " << rollsize << "\n";
+	cout << "Price: " << price << "\n";
+}
+
 
