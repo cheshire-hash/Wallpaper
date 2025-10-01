@@ -3,37 +3,45 @@
 #include "Room.h";
 using namespace std;
 
-int Flat::countroom = 0;
+int Flat::countroomforflat = 0;
+int Flat::countflat = 0;
+int Flat::countroomforflat = Room::GetCount();
 
-Flat::Flat() : list(nullptr) { countroom++; }
+Flat::Flat() : list(nullptr) { countflat++; }
 
-Flat::Flat(Room& list)
+Flat::Flat(int n)
 {
-	list = new Room[numbers];
-	countroom++;
+	countroomforflat = n;
+	list = new Room[countroomforflat];
 }
 
 Flat::Flat(const Flat& obj)
 {
-	list = new Room[countroom];  
-	for (int i = 0; i < countroom; i++)
+	if (countroomforflat > 0)
 	{
-		list[i] = obj.list[i]; 
+		list = new Room[countroomforflat];
+		for (int i = 0; i < countroomforflat; i++)
+		{
+			list[i] = obj.list[i];
+		}
 	}
-	obj.countroom = obj.countroom;
-	countroom++;
+	else
+	{
+		list = nullptr;
+	}
+	countflat++;  
 }
 
 Flat::~Flat()
 {
 	delete[] list;
-	countroom--;	
+	countflat--;	
 }
 
 int Flat::CountTotalRooms()
 {
 	int total = 0;
-	for (int i = 0; i < countroom; i++)
+	for (int i = 0; i < countroomforflat; i++)
 	{
 		total += list[i].NeededWallpaperForRoom();
 	}
@@ -43,7 +51,7 @@ int Flat::CountTotalRooms()
 int Flat::TotalCost()
 {
 	int total = 0;
-	for (int i = 0; i < countroom; i++)
+	for (int i = 0; i < countroomforflat; i++)
 	{
 		total += list[i].CostWallsForRoom();
 	}
@@ -52,8 +60,8 @@ int Flat::TotalCost()
 
 void Flat::Print()
 {
-	cout << "Flat has " << countroom << " rooms:\n";
-	for (int i = 0; i < countroom; i++)
+	cout << "Flat has " << countroomforflat << " rooms:\n";
+	for (int i = 0; i < countroomforflat; i++)
 	{
 		cout << "Room #" << (i + 1) << ":\n";
 		list[i].Print(); 

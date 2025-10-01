@@ -32,6 +32,27 @@ Room::Room(const Room& obj)
 	countWithCeeling += ceeling ? 1 : 0;
 }
 
+Room& Room::operator=(Room& obj)
+{
+	if (this == &obj) 
+		return *this;
+
+	if (name != nullptr)
+	{
+		delete[] name;
+		name = nullptr;
+	}
+	if (obj.name != nullptr)
+	{
+		name = new char[strlen(obj.name) + 1];
+		strcpy_s(name, strlen(obj.name) + 1, obj.name);
+	}
+	roomsize = obj.roomsize;
+	ceeling = obj.ceeling;
+	wallpaper = obj.wallpaper; 
+	return *this;
+}
+
 Room::~Room()
 {
 	delete[] name;
@@ -107,6 +128,7 @@ int Room::CostWallsForRoom()
 {
 	return NeededWallpaperForRoom() * wallpaper->GetPrice();
 }
+
 
 void Room::Print()
 {

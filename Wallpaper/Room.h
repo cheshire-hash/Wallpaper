@@ -12,6 +12,7 @@ public:
 	Room();
 	Room(const char* n, int s, bool c);
 	Room(const Room& obj);
+	Room& operator=(Room& obj);
 	~Room();
 	char* GetName();
 	int GetRoomsize();
@@ -25,6 +26,7 @@ public:
     Wallpaper* GetWallpaper();
 	int NeededWallpaperForRoom(); 
 	int CostWallsForRoom();
+	void SetRoom(int index, const Room& room);
 	void Print();
 };
 

@@ -3,12 +3,13 @@
 class Flat
 {
 	Room* list;
-	static int countroom;
+	static int countflat;
+	static int countroomforflat;
 public:
 	Flat();
-	Flat(Room& list);
+	Flat(int n);
 	Flat(const Flat& obj);
-
+	Flat& operator=(const Flat& obj);
 	~Flat();
 	int CountTotalRooms();
 	int TotalCost();
