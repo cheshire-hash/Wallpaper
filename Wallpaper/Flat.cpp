@@ -3,7 +3,6 @@
 #include "Room.h";
 using namespace std;
 
-int Flat::countroomforflat = 0;
 int Flat::countflat = 0;
 int Flat::countroomforflat = Room::GetCount();
 
