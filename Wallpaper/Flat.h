@@ -9,10 +9,10 @@ public:
 	Flat();
 	Flat(int n);
 	Flat(const Flat& obj);
-	Flat& operator=(const Flat& obj);
 	~Flat();
 	int CountTotalRooms();
 	int TotalCost();
 	void Print();
+	void SetRoom(int index, const Room& room);
 };
 

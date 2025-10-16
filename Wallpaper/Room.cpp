@@ -6,9 +6,9 @@ using namespace std;
 int Room::count = 0;
 int Room::countWithCeeling = 0;
 
-Room::Room() : name(nullptr), roomsize(0), ceeling(false) { count++; }
+Room::Room() : name(nullptr), roomsize(0), ceeling(false), wallpaper(nullptr) { count++; }
 
-Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c)
+Room::Room(const char* n, int s, bool c) : roomsize(s), ceeling(c), wallpaper(nullptr)
 {
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);
@@ -30,27 +30,6 @@ Room::Room(const Room& obj)
 	ceeling = obj.ceeling;
 	count++;
 	countWithCeeling += ceeling ? 1 : 0;
-}
-
-Room& Room::operator=(Room& obj)
-{
-	if (this == &obj) 
-		return *this;
-
-	if (name != nullptr)
-	{
-		delete[] name;
-		name = nullptr;
-	}
-	if (obj.name != nullptr)
-	{
-		name = new char[strlen(obj.name) + 1];
-		strcpy_s(name, strlen(obj.name) + 1, obj.name);
-	}
-	roomsize = obj.roomsize;
-	ceeling = obj.ceeling;
-	wallpaper = obj.wallpaper; 
-	return *this;
 }
 
 Room::~Room()
@@ -128,7 +107,6 @@ int Room::CostWallsForRoom()
 {
 	return NeededWallpaperForRoom() * wallpaper->GetPrice();
 }
-
 
 void Room::Print()
 {

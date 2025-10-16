@@ -72,3 +72,9 @@ void Flat::Print()
 	
 }
 
+void Flat::SetRoom(int index, const Room& room)
+{
+	list[index].~Room();
+	new (&list[index]) Room(room);
+}
+
