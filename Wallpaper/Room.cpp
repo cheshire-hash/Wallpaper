@@ -30,6 +30,7 @@ Room::Room(const Room& obj)
 	ceeling = obj.ceeling;
 	count++;
 	countWithCeeling += ceeling ? 1 : 0;
+	wallpaper = obj.wallpaper;
 }
 
 Room::~Room()
